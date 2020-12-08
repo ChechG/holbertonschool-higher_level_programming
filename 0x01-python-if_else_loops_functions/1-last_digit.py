@@ -5,7 +5,7 @@ number = random.randint(-10000, 10000)
 if number < 0:
     num = number * -1
     lastA = num % 10
-elif number > 0
+elif number > 0:
     lastA = num % 10
 if lastA > 5:
     print("Last digit of {:d} ".format(number, end=""))
@@ -16,4 +16,3 @@ elif lastA == 0:
 elif lastA <= 5:
     print("Last digit of {:d} ".format(lastA, end=""))
     print("is {:d} and is less than 6 and not 0".format(lastA, end=""))
-    
