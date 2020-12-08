@@ -15,5 +15,5 @@ elif lastA == 0:
     print("Last digit of {:d} ".format(number), end="")
     print("is {:d} and is 0".format(lastA))
 elif lastA < 6:
-	print("Last digit of {:d} ".format(lastA), end="")
-	print("is {:d} and is less than 6 and not 0".format(lastA))
+    print("Last digit of {:d} ".format(lastA), end="")
+    print("is {:d} and is less than 6 and not 0".format(lastA))
