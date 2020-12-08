@@ -5,7 +5,7 @@ if number < 0:
     lastA = (number * -1) % 10
     if lastA != 0:
         lastA *= -1
-elif number >= 0:
+else:
     lastA = number % 10
 if lastA == 0:
     print("Last digit of {:d} ".format(number), end="")
