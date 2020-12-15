@@ -9,7 +9,7 @@ int is_palindrome(listint_t **head)
 	listint_t *temp = *head;
 	listint_t *temp2 = *head;
 	int len, i, j;
-	int *array;
+	int array[5000];
 
 	if (!head)
 		return (0);
@@ -19,7 +19,6 @@ int is_palindrome(listint_t **head)
 	{
 		temp = temp->next;
 	}
-	array =  malloc(len * sizeof(int));
 	for (i = 0; i <= len; i++)
 	{
 		array[i] = temp2->n;
@@ -29,7 +28,6 @@ int is_palindrome(listint_t **head)
 	{
 		if (array[len] != array[j])
 		{
-			free(array);
 			return (0);
 		}
 	}
