@@ -29,6 +29,7 @@ int is_palindrome(listint_t **head)
 	{
 		if (array[len] != array[j])
 		{
+			free(array);
 			return (0);
 		}
 	}
