@@ -7,3 +7,4 @@ def square_matrix_simple(matrix=[]):
         for j in i:
             lista.append(j ** 2)
     return square
+    
