@@ -32,9 +32,11 @@ class Node:
 class SinglyLinkedList:
     """Square class"""
     def __init__(self):
+        """Square class"""
         self.head = None
 
     def sorted_insert(self, value):
+        """Square class"""
         curr = self.head
         if curr is None:
             n = Node(value)
@@ -59,12 +61,14 @@ class SinglyLinkedList:
         curr.next_node = n
 
     def __str__(self):
-        data = []
+        """Square class"""
+        datas = []
         curr = self.head
         while curr is not None:
-            data.append(curr.data)
+            datas.append(curr.data)
             curr = curr.next_node
-        return "%s" % ('\n'.join(str(i) for i in data))
+        return "%s" % ('\n'.join(str(i) for i in datas))
 
     def __repr__(self):
+        """Square class"""
         return self.__str__()
