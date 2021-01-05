@@ -1,12 +1,35 @@
 #!/usr/bin/python3
-
+"""Square class"""
 
 class Node:
-  def __init__(self, data, next_node=None):
-    self.data = data
-    self.next_node = next_node
+    def __init__(self, data, next_node=None):
+        """Square class"""
+        self.data = data
+        self.next_node = next_node
+    
+    @property
+    def data(self):
+        """property to retrieve data"""
+        return self.__data
+
+    @data.setter
+    def data(self, value):
+        """property setter to set data"""
+        self.__data = value
+
+    @property
+    def next_node(self):
+        """property to retrieve next node"""
+        return self.__next_node
+
+    @next_node.setter
+    def next_node(self, value):
+        """property to retrieve next node"""
+        self.__next_node = value
+
 
 class SinglyLinkedList:
+    """Square class"""
     def __init__(self):
         self.head = None
 
