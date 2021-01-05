@@ -5,6 +5,8 @@
 class Node:
     def __init__(self, data, next_node=None):
         """Square class"""
+        if not type(data) is int:
+            raise TypeError("data must be an integer")
         self.data = data
         self.next_node = next_node
 
@@ -65,9 +67,9 @@ class SinglyLinkedList:
         datas = []
         curr = self.head
         while curr is not None:
-            datas.append(curr.data)
+            datas.append(str(curr.data))
             curr = curr.next_node
-        return "%s" % ('\n'.join(str(i) for i in datas))
+        return ('\n'.join(datas))
 
     def __repr__(self):
         """Square class"""
