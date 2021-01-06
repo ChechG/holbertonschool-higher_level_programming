@@ -3,6 +3,7 @@
 
 
 class Node:
+    """Square class"""
     def __init__(self, data, next_node=None):
         """Square class"""
         self.data = data
