@@ -15,9 +15,8 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         elif position[0] < 0 or position[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
-        else:
-            self.__size = size
-            self.__position = position
+        self.__size = size
+        self.__position = position
 
     '''Size getter'''
     @property
@@ -58,7 +57,6 @@ class Square:
     '''Prints the square'''
     def my_print(self):
         if self.__size == 0:
-            print()
             return
         if self.__position[1] > 0:
             for l in range(0, self.__position[1]):
