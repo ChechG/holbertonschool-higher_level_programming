@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-"""Square class"""
 
 
 class Node:
-    """Square class"""
     def __init__(self, data, next_node=None):
-        """Square class"""
         self.data = data
         self.next_node = next_node
-
+    
     @property
     def data(self):
         """property to retrieve data"""
@@ -35,32 +32,38 @@ class Node:
 
 
 class SinglyLinkedList:
-    """Square class"""
-    def __init__(self):
-        """Square class"""
-        self.__head = None
+  def __init__(self):
+    self.__head = None
 
-    def sorted_insert(self, value):
-        """Square class"""
+  def sorted_insert(self, value):
+    curr = self.__head
+    if curr is None:
         n = Node(value)
-        if self.__head is None:
-            n.next_node = None
-            self.__head = n
-        elif self.__head.data > value:
-            n.next_node = self.__head
-            self.__head = n
-        else:
-            curr = self.__head
-            while (curr.next_node is not None and curr.next_node.data < value):
-                curr = curr.next_node
-            n.next_node = curr.next_node
-            curr.next_node = n
+        n.data = value
+        self.__head = n
+        return
 
-    def __str__(self):
-        """Square class"""
-        datas = []
-        curr = self.__head
-        while curr is not None:
-            datas.append(str(curr.data))
-            curr = curr.next_node
-        return ('\n'.join(datas))
+    if curr.data > value:
+        n = Node(value)
+        n.data = value
+        n.next_node = curr
+        self.head = n
+        return
+
+    while curr.next_node is not None:
+        if curr.next_node.data > value:
+            break
+        curr = curr.next_node
+    n = Node(value)
+    n.data = value
+    n.next_node = curr.next_node
+    curr.next_node = n
+    return
+
+  def __str__(self):
+    datas = []
+    curr = self.head
+    while curr is not None:
+      datas.append(str(curr.data))
+      curr = curr.next_node
+    return ('\n'.join(datas))
