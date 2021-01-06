@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-
+"""Square class"""
 
 class Node:
+    """Square class"""
     def __init__(self, data, next_node=None):
+        """Square class"""
         self.data = data
         self.next_node = next_node
     
@@ -32,35 +34,39 @@ class Node:
 
 
 class SinglyLinkedList:
-  def __init__(self):
-    self.__head = None
+    """Square class"""
+    def __init__(self):
+        """Square class"""
+        self.__head = None
 
-  def sorted_insert(self, value):
-    curr = self.__head
-    if curr is None:
+    def sorted_insert(self, value):
+        """Square class"""
+        curr = self.__head
+        if curr is None:
+            n = Node(value)
+            n.data = value
+            self.__head = n
+            return
+
+        if curr.data > value:
+            n = Node(value)
+            n.data = value
+            n.next_node = curr
+            self.head = n
+            return
+
+        while curr.next_node is not None:
+            if curr.next_node.data > value:
+                break
+            curr = curr.next_node
         n = Node(value)
         n.data = value
-        self.__head = n
+        n.next_node = curr.next_node
+        curr.next_node = n
         return
-
-    if curr.data > value:
-        n = Node(value)
-        n.data = value
-        n.next_node = curr
-        self.head = n
-        return
-
-    while curr.next_node is not None:
-        if curr.next_node.data > value:
-            break
-        curr = curr.next_node
-    n = Node(value)
-    n.data = value
-    n.next_node = curr.next_node
-    curr.next_node = n
-    return
 
   def __str__(self):
+    """Square class"""
     datas = []
     curr = self.head
     while curr is not None:
