@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 """Square class"""
 
+
 class Node:
     """Square class"""
     def __init__(self, data, next_node=None):
         """Square class"""
         self.data = data
         self.next_node = next_node
-    
+
     @property
     def data(self):
         """property to retrieve data"""
@@ -65,11 +66,11 @@ class SinglyLinkedList:
         curr.next_node = n
         return
 
-  def __str__(self):
-    """Square class"""
-    datas = []
-    curr = self.head
-    while curr is not None:
-      datas.append(str(curr.data))
-      curr = curr.next_node
-    return ('\n'.join(datas))
+    def __str__(self):
+        """Square class"""
+        datas = []
+        curr = self.head
+        while curr is not None:
+            datas.append(str(curr.data))
+            curr = curr.next_node
+        return ('\n'.join(datas))
