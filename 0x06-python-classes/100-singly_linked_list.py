@@ -53,7 +53,7 @@ class SinglyLinkedList:
             n = Node(value)
             n.data = value
             n.next_node = curr
-            self.head = n
+            self.__head = n
             return
 
         while curr.next_node is not None:
@@ -69,7 +69,7 @@ class SinglyLinkedList:
     def __str__(self):
         """Square class"""
         datas = []
-        curr = self.head
+        curr = self.__head
         while curr is not None:
             datas.append(str(curr.data))
             curr = curr.next_node
