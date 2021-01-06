@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-"""Square class"""
+"""Write a class Node that defines a node of a singly linked list"""
+"""while sorting it"""
 
 
 class Node:
     """Square class"""
     def __init__(self, data, next_node=None):
-        """Square class"""
+        """creates node, with data and next_node"""
         self.data = data
         self.next_node = next_node
 
@@ -37,11 +38,11 @@ class Node:
 class SinglyLinkedList:
     """Square class"""
     def __init__(self):
-        """Square class"""
+        """Creates head with null pointer"""
         self.__head = None
 
     def sorted_insert(self, value):
-        """Square class"""
+        """Inserts data to the sll, and sorts it while doing it"""
         curr = self.__head
         if curr is None:
             n = Node(value)
@@ -67,7 +68,7 @@ class SinglyLinkedList:
         return
 
     def __str__(self):
-        """Square class"""
+        """Converts values to string inside a list[]"""
         datas = []
         curr = self.__head
         while curr is not None:
