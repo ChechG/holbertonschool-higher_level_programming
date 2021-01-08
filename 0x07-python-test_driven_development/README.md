@@ -47,3 +47,13 @@
    - A documentation is not a simple word, its a real sentence explaining whats the purpose of the module, class or method (the length of it will be verified)
    - We strongly encourage you to work together on test cases, so that you dont miss any edge case
    - And of course Dillinger itself is open source with a [public repository][dill] on GitHub.
+
+# Tasks:
+   - 0 - Write a function that adds 2 integers.
+   - 1 - Write a function that divides all elements of a matrix.
+   - 2 - Write a function that prints My name is <first name> <last name>.
+   - 3 - Write a function that prints a square with the character #.
+   - 4 - Write a function that prints a text with 2 new lines after each of these characters: ., ? and :
+   - 5 - Since the beginning you have been creating “Interactive tests”. For this exercise, you will add Unittests.
+
+# Advanced.
