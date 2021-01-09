@@ -81,3 +81,10 @@ Traceback (most recent call last):
 ...
 TypeError: text_indentation() missing 1 required positional argument: 'text'
 >>> text_indentation("""Utrum igitur tibi litteram videor... an totas paginas commovere?""")
+Utrum igitur tibi litteram videor.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+an totas paginas commovere?
