@@ -7,6 +7,9 @@ Prototype: def text_indentation(text):"""
 
 
 def text_indentation(text):
+    """
+    Function that prints a text with 2 new lines
+    """
     if type(text) is not str:
         raise TypeError("text must be a string")
     i = 0

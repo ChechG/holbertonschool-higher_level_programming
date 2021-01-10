@@ -7,6 +7,9 @@ Prototype: def matrix_mul(m_a, m_b):
 
 
 def matrix_mul(m_a, m_b):
+    """
+    Write a function that multiplies 2 matrices:
+    """
     if type(m_a) is not list:
         raise TypeError("m_a must be a list")
     if type(m_b) is not list:
