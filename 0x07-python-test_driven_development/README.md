@@ -57,3 +57,4 @@
    - 5 - Since the beginning you have been creating “Interactive tests”. For this exercise, you will add Unittests.
 
 # Advanced.
+   - 6 - Write a function that multiplies 2 matrices.
