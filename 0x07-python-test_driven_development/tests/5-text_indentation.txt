@@ -3,88 +3,117 @@ The ``5-text_indentation`` module
 
 Using ``text_indentation``
 -------------------
->>> text_indentation = __import__('5-text_indentation').text_indentation
->>> text_indentation("Holberton.School")
-Holberton.
-<BLANKLINE>
-School
->>> text_indentation("Holberton..School")
-Holberton.
-<BLANKLINE>
-.
-<BLANKLINE>
-School
->>> text_indentation(12)
-Traceback (most recent call last):
-...
-TypeError: text must be a string
->>> text_indentation("hola", "como estas")
-Traceback (most recent call last):
-...
-TypeError: text_indentation() takes 1 positional argument but 2 were given
->>> text_indentation(12, "98 Battery street")
-Traceback (most recent call last):
-...
-TypeError: text_indentation() takes 1 positional argument but 2 were given
->>> text_indentation("98 Battery street", 12)
-Traceback (most recent call last):
-...
-TypeError: text_indentation() takes 1 positional argument but 2 were given
->>> text_indentation(12, 12)
-Traceback (most recent call last):
-...
-TypeError: text_indentation() takes 1 positional argument but 2 were given
->>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres""")
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-<BLANKLINE>
-Quonam modo?
-<BLANKLINE>
-Utrum igitur tibi litteram videor an totas paginas commovere?
-<BLANKLINE>
-Non autem hoc:
-<BLANKLINE>
-igitur ne illud quidem.
-<BLANKLINE>
-Fortasse id optimum, sed ubi illud:
-<BLANKLINE>
-Plus semper voluptatis?
-<BLANKLINE>
-Teneo, inquit, finem illi videri nihil dolere.
-<BLANKLINE>
-Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
-<BLANKLINE>
-Si id dicis, vicimus.
-<BLANKLINE>
-Inde sermone vario sex illa a Dipylo stadia confecimus.
-<BLANKLINE>
-Sin aliud quid voles, postea.
-<BLANKLINE>
-Quae animi affectio suum cuique tribuens atque hanc, quam dico.
-<BLANKLINE>
-Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
->>> text_indentation(abc)
-Traceback (most recent call last):
-...
-NameError: name 'abc' is not defined
->>> text_indentation("""   Teneo, inquit\n        , finem illi""")
-Teneo, inquit
-, finem illi
->>> text_indentation("""     Teneo, iniquit\n, finem illi""")
-Teneo, iniquit
-, finem illi
->>> text_indentation(None)
-Traceback (most recent call last):
-...
-TypeError: text must be a string
->>> text_indentation()
-Traceback (most recent call last):
-...
-TypeError: text_indentation() missing 1 required positional argument: 'text'
->>> text_indentation("""Utrum igitur tibi litteram videor... an totas paginas commovere?""")
-Utrum igitur tibi litteram videor.
-<BLANKLINE>
-.
-<BLANKLINE>
-.
-<BLANKLINE>
-an totas paginas commovere?
+Importing function:
+        >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Case with a string with a "." in the middle:
+        >>> text_indentation("Holberton.School")
+        Holberton.
+        <BLANKLINE>
+        School
+
+Case with a string with two "." in the middle:
+        >>> text_indentation("Holberton..School")
+        Holberton.
+        <BLANKLINE>
+        .
+        <BLANKLINE>
+        School
+
+Case with an int as an argument:
+        >>> text_indentation(12)
+        Traceback (most recent call last):
+        ...
+        TypeError: text must be a string
+
+Case with two strings as arguments:
+        >>> text_indentation("hola", "como estas")
+        Traceback (most recent call last):
+        ...
+        TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+Case with one int and one string as arguments:
+        >>> text_indentation(12, "98 Battery street")
+        Traceback (most recent call last):
+        ...
+        TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+Case with one string and one int as arguments:
+        >>> text_indentation("98 Battery street", 12)
+        Traceback (most recent call last):
+        ...
+        TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+Case with two int as arguments:
+        >>> text_indentation(12, 12)
+        Traceback (most recent call last):
+        ...
+        TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+Case with a large string with ".", ":" and "?":
+        >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres""")
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <BLANKLINE>
+        Quonam modo?
+        <BLANKLINE>
+        Utrum igitur tibi litteram videor an totas paginas commovere?
+        <BLANKLINE>
+        Non autem hoc:
+        <BLANKLINE>
+        igitur ne illud quidem.
+        <BLANKLINE>
+        Fortasse id optimum, sed ubi illud:
+        <BLANKLINE>
+        Plus semper voluptatis?
+        <BLANKLINE>
+        Teneo, inquit, finem illi videri nihil dolere.
+        <BLANKLINE>
+        Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
+        <BLANKLINE>
+        Si id dicis, vicimus.
+        <BLANKLINE>
+        Inde sermone vario sex illa a Dipylo stadia confecimus.
+        <BLANKLINE>
+        Sin aliud quid voles, postea.
+        <BLANKLINE>
+        Quae animi affectio suum cuique tribuens atque hanc, quam dico.
+        <BLANKLINE>
+        Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
+
+Case with Nan (empty variable):
+        >>> text_indentation(abc)
+        Traceback (most recent call last):
+        ...
+        NameError: name 'abc' is not defined
+
+Case with several spaces before string starts, and after "\n":
+        >>> text_indentation("""   Teneo, inquit\n        , finem illi""")
+        Teneo, inquit
+        , finem illi
+
+Case with several spaces before string starts, and one "\n":
+        >>> text_indentation("""     Teneo, iniquit\n, finem illi""")
+        Teneo, iniquit
+        , finem illi
+
+Case with None as argument:
+        >>> text_indentation(None)
+        Traceback (most recent call last):
+        ...
+        TypeError: text must be a string
+
+Case with no argument:
+        >>> text_indentation()
+        Traceback (most recent call last):
+        ...
+        TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+Case with string with "..." and a "?" ant the end:
+        >>> text_indentation("""Utrum igitur tibi litteram videor... an totas paginas commovere?""")
+        Utrum igitur tibi litteram videor.
+        <BLANKLINE>
+        .
+        <BLANKLINE>
+        .
+        <BLANKLINE>
+        an totas paginas commovere?
