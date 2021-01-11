@@ -61,3 +61,9 @@ Case with None as argument:
         Traceback (most recent call last):
         ...
         TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+Case with one argument:
+        >>> matrix_divided([[3, 9], [15, 3]])
+        Traceback (most recent call last):
+        ...
+        TypeError: matrix_divided() missing 1 required positional argument: 'div'
