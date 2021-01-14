@@ -1,44 +1,37 @@
 # --- Everything is object ---
 
-# Background Context
-        Now that we understand that everything is an object and have a little bit of knowledge, let’s pause and look a little bit closer at how Python works with different\
- types of objects.
+# More Info       
+**Data Structures**
+Please use these data structures for this project:
 
-        BTW, have you ever modified a variable without knowing it or wanting to? I mean:
+        /**
+        * struct hash_node_s - Node of a hash table
+        *
+        * @key: The key, string
+        * The key is unique in the HashTable
+        * @value: The value corresponding to a key
+        * @next: A pointer to the next node of the List
+        */
+        typedef struct hash_node_s
+        {
+            char *key;
+            char *value;
+            struct hash_node_s *next;
+        } hash_node_t;
 
-        ```sh
-        >>> a = 1
-        >>> b = a
-        >>> a = 2
-        >>> b
-        1
-        >>>
-        ```
-
-        OK. But what about this?
-
-        ```sh
-        >>> l = [1, 2, 3]
-        >>> m = l
-        >>> l[0] = 'x'
-        >>> m
-        ['x', 2, 3]
-        >>>
-        ```
-
-        This project is a little bit different than the usual projects. The first part is only questions about Python’s specificity like “What would be the result of…”. Yo\
-u should read all documentation first (as usual :)), then take the time to think and brainstorm with your peers about what you think and why. Try to do this without coding\
- anything for a few hours.
-
-        Trying examples in the Python interpreter will give you most of the answers without having to think about it. Don’t go this route. First read, then think, then bra\
-instorm together. Only then you can test in the interpreter.
-
-        It’s important that you truly understand the reasons behind the answers of all those tasks so that you can apply the same logic to other variables and other variab\
-le types. The biggest mandatory task is the blog post and it will count for 50% of the total score of the project.
-
- Note that during interviews for Python positions, you will most likely have to answer to these type of questions.
-
-        All your answers should be only one line in a file. No space before or after the answer.
+        /**
+        * struct hash_table_s - Hash table data structure
+        *
+        * @size: The size of the array
+        * @array: An array of size @size
+        * Each cell of this array is a pointer to the first node of a linked list,
+        * because we want our HashTable to use a Chaining collision handling
+        */
+        typedef struct hash_table_s
+        {
+            unsigned long int size;
+            hash_node_t **array;
+        } hash_table_t;
 
 # Learning Objectives
        At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
@@ -66,6 +59,14 @@ le types. The biggest mandatory task is the blog post and it will count for 50% 
    - The prototypes of all your functions should be included in your header file called hash_tables.h
    - Don’t forget to push your header file
    - All your header files should be include guarded
+
+# Tests
+We strongly encourage you to work all together on a set of tests
+
+# Python Dictionaries
+Python dictionaries are implemented using hash tables. When you will be done with this project, you will be able to better understand the power and simplicity of Python dictionaries. So much is actually happening when you type d = {'a': 1, 'b': 2}, but everything looks so simple for the user. Python doesn’t use the exact same implementation than the one you will work on today though. If you are curious on how it works under the hood, here is a good blog post about how dictionaries are implemented in Python 2.7 (not mandatory).
+
+Note that all dictionaries are not implemented using hash tables and there is a difference between a dictionary and a hash table. Read more here (not mandatory).
 
 # Tasks:
    - 0 - Write a function that creates a hash table.
