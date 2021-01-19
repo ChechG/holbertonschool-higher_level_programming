@@ -84,4 +84,12 @@ Test with None as both parameters:
         ...
         TypeError: None must be an integer
 
+Test with None as both parameters:
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator(None)
+        Traceback (most recent call last):
+        ...
+        TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+
 
