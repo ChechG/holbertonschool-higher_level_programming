@@ -1,0 +1,52 @@
+The ``7-base_geometry`` module
+======================
+
+Using ``BaseGeometry``
+-------------------
+Importing function:
+        >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Test success (one string and one int):
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("width", 1)
+
+Test one string and a negative number:
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("width", -4)
+        Traceback (most recent call last):
+        ...
+        ValueError: width must be greater than 0
+
+Test one string and a float:
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("width", 4.5)
+        Traceback (most recent call last):
+        ...
+        TypeError: width must be an integer
+
+Test two ints:
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator(2, 4)
+
+Test with None as 2nd parameter:
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("width", None)
+        Traceback (most recent call last):
+        ...
+        TypeError: width must be an integer
+
+Test one string and a negative float:
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("width", -4.5)
+        Traceback (most recent call last):
+        ...
+        TypeError: width must be an integer
+
+Test with None as both parameters:
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator(None, None)
+        Traceback (most recent call last):
+        ...
+        TypeError: None must be an integer
+
+
