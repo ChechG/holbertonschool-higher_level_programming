@@ -60,7 +60,7 @@ Test only one string element in list:
         >>> my_list = MyList()
         >>> my_list.append("hello")
         >>> my_list.print_sorted()
-        ["hello"]
+        ['hello']
 
 
 Test empty list:
