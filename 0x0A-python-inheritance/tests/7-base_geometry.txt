@@ -17,6 +17,13 @@ Test one string and a negative number:
         ...
         ValueError: width must be greater than 0
 
+Test one string and 0:
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("width", 0)
+        Traceback (most recent call last):
+        ...
+        ValueError: width must be greater than 0
+
 Test one string and a float:
         >>> bg = BaseGeometry()
         >>> bg.integer_validator("width", 4.5)
