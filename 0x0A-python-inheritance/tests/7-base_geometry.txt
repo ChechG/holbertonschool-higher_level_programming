@@ -56,6 +56,12 @@ Test string and dictionary:
         ...
         TypeError: width must be an integer
 
+Test with one list element:
+        >>> bg.integer_validator("Test", [3])
+        Traceback (most recent call last):
+        ...
+        TypeError: Test must be an integer
+
 Test string and list:
         >>> bg = BaseGeometry()
         >>> bg.integer_validator("width", [1, 2])
