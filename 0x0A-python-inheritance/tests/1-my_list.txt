@@ -50,6 +50,18 @@ Test only one element in list:
         >>> my_list.print_sorted()
         [10]
 
+Test only one negative element in list:
+        >>> my_list = MyList()
+        >>> my_list.append(-10)
+        >>> my_list.print_sorted()
+        [-10]
+
+Test only one string element in list:
+        >>> my_list = MyList()
+        >>> my_list.append("hello")
+        >>> my_list.print_sorted()
+        ["hello"]
+
 
 Test empty list:
         >>> my_list = MyList()
