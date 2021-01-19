@@ -56,6 +56,13 @@ Test empty list:
         >>> my_list.print_sorted()
         []
 
+Test with already created list:
+        >>> new_list = [1, 2, 3]
+        >>> new_list.print_sorted()
+        Traceback (most recent call last):
+        ...
+        AttributeError: 'list' object has no attribute 'print_sorted'
+
 Test list with one string:
         >>> my_list = MyList()
         >>> my_list.append(1)
