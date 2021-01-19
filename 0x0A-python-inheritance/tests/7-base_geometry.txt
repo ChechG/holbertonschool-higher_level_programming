@@ -35,6 +35,13 @@ Test two ints:
         >>> bg = BaseGeometry()
         >>> bg.integer_validator(2, 4)
 
+Test string and dictionary:
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("width", (1, 2))
+        Traceback (most recent call last):
+        ...
+        TypeError: width must be an integer
+
 Test with None as 2nd parameter:
         >>> bg = BaseGeometry()
         >>> bg.integer_validator("width", None)
