@@ -2,19 +2,7 @@
 """ New class BaseGeometry based on 7-base_geometry"""
 
 
-class BaseGeometry():
-    """ defining integer validator: type int and > 0 """
-    def area(self):
-        """ defining area method """
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """ defining integer validator and > 0 """
-        if not type(value) is int:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
-
+BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
 class Rectangle(BaseGeometry):
     """ defining class inherited from BaseGeometry class """
