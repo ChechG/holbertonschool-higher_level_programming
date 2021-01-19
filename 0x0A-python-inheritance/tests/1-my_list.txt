@@ -6,9 +6,6 @@ Using ``MyList``
 Importing function:
         >>> MyList = __import__('1-my_list').MyList
 
-Creating MyList:
-        >>> my_list = MyList()
-
 Test success (all positive integers):
         >>> my_list = MyList()
         >>> my_list.append(1)
@@ -17,6 +14,19 @@ Test success (all positive integers):
         >>> my_list.append(4)
         >>> my_list.print_sorted()
         [1, 4, 8, 16]
+
+Test append list(MyList):
+        >>> my_list = MyList()
+        >>> o_list = MyList()
+        >>> o_list.append(2)
+        >>> my_list.append(1)
+        >>> my_list.append(16)
+        >>> my_list.append(o_list)
+        >>> my_list.append(4)
+        >>> my_list.print_sorted()
+        Traceback (most recent call last):
+        ...
+        TypeError: unorderable types: MyList() < int()
 
 Test negative numbers:
         >>> my_list = MyList()
