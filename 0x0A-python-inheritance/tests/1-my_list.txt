@@ -26,6 +26,19 @@ Test success:
         >>> my_list.print_sorted()
         [1, 4, 8, 16]
 
+Test success:
+        >>> my_list = MyList()
+        >>> my_list.append(1)
+        >>> my_list.append(16)
+        >>> my_list.append(8)
+        >>> my_list.append(4)
+        >>> print(my_list)
+        [1, 16, 8, 4]
+        >>> my_list.print_sorted()
+        [1, 4, 8, 16]
+        >>> print(my_list)
+        [1, 16, 8, 4]
+
 Test append list(MyList):
         >>> my_list = MyList()
         >>> o_list = MyList()
