@@ -6,13 +6,12 @@ Using ``BaseGeometry``
 Importing function:
         >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+Test creating:
+        >>> bg = BaseGeometry()
+
 Test success (one string and one int):
         >>> bg = BaseGeometry()
         >>> bg.integer_validator("width", 1)
-
-Test comparing dirs:
-        >>> dir(bg) == dir(BaseGeometry)
-        True
 
 Test one string and a negative number:
         >>> bg = BaseGeometry()
