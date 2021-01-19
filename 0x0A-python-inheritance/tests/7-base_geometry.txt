@@ -10,6 +10,10 @@ Test success (one string and one int):
         >>> bg = BaseGeometry()
         >>> bg.integer_validator("width", 1)
 
+Test comparing dirs:
+        >>> dir(bg) == dir(BaseGeometry)
+        True
+
 Test one string and a negative number:
         >>> bg = BaseGeometry()
         >>> bg.integer_validator("width", -4)
