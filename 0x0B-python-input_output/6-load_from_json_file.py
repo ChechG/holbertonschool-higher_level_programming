@@ -4,6 +4,7 @@ import json
 
 
 def load_from_json_file(filename):
+    """ Write a function that creates an Obj from a “JSON file” """
     with open(filename, mode="r", encoding="utf-8") as myFile:
         filename = json.load(myFile)
         return (filename)
