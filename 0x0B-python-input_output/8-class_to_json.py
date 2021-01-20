@@ -4,4 +4,5 @@ MyClass = __import__('8-my_class').MyClass
 
 
 def class_to_json(obj):
+    """ Returns the dict description with simple data structure """
     return obj.__dict__
