@@ -8,4 +8,3 @@ def write_file(filename="", text=""):
         myFile.write(text)
     with open(filename, encoding="utf-8") as myFile:
         return(len(text))
-        
