@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-""" Function that returns the dict description with simple data structure """
-
-
-MyClass = __import__('8-my_class').MyClass
+""" Class to json """
 
 
 def class_to_json(obj):
-    """ Returns the dict description with simple data structure """
+    """ returns attributes """
     return obj.__dict__
