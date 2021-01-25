@@ -84,5 +84,4 @@ You will also learn about:
    - 19 - Update the class Base by adding the class method def load_from_file(cls): that returns a list of instances.
 
 # Advanced.
-   - 20 - 
-   - 21 - 
+   - 20 - Update the class Base by adding the class methods def save_to_file_csv(cls, list_objs): and def load_from_file_csv(cls): that serializes and deserializes in CSV
