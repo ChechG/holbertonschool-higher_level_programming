@@ -79,19 +79,9 @@ class TestingBase(unittest.TestCase):
     def test4_to_json_string(self):
         """funct to pass to JSON string"""
         Base._Base__nb_objects = 0
-        with self.assertRaises(TypeError):
-            Base.to_json_string()
-        jstrg = Base.to_json_string([])
-        self.assertEqual(jstrg, "[]")
-
         MyList = [1, 2, 3]
         jstrg = Base.to_json_string([MyList])
         self.assertEqual(jstrg, "[[1, 2, 3]]")
-
-        with self.assertRaises(NameError):
-            MyString = "Hello"
-            jstrg = Base.to_json_string(MyString)
-            self.assertEqual(jstrg, Hello)
 
         i = (1, "foo", "bar")
         jsdict = Base.to_json_string(i)
@@ -105,6 +95,17 @@ class TestingBase(unittest.TestCase):
                                      'width': 5,
                                      'x': 0,
                                      'id': 1})
+
+    def test4_to_json_string_err(self):
+        with self.assertRaises(NameError):
+            MyString = "Hello"
+            jstrg = Base.to_json_string(MyString)
+            self.assertEqual(jstrg, Hello)
+
+        with self.assertRaises(TypeError):
+            Base.to_json_string()
+        jstrg = Base.to_json_string([])
+        self.assertEqual(jstrg, "[]")
 
         with self.assertRaises(TypeError):
             Rect3 = Rectangle(1)
@@ -223,6 +224,15 @@ class TestingBase(unittest.TestCase):
         list_output2 = Rectangle.from_json_string(json_list_input2)
         self.assertEqual(list_output2, [])
 
+        list_input5 = [
+            {'id': 97, 'width': 5}
+        ]
+        json_list_input5 = Rectangle.to_json_string(list_input5)
+        list_output5 = Rectangle.from_json_string(json_list_input5)
+        self.assertEqual(list_output5, [{'id': 97, 'width': 5}])
+
+    def test15_jsonstr_to_dic3_err(self):
+        """ test json to dict """
         with self.assertRaises(TypeError):
             json_list_input3 = None
             list_output3 = Rectangle.from_json_string(json_list_input3)
@@ -232,13 +242,6 @@ class TestingBase(unittest.TestCase):
             list_output4 = Rectangle.from_json_string(json_list_input4)
             self.assertEqual(list_output4, "")
 
-        list_input5 = [
-            {'id': 97, 'width': 5}
-        ]
-        json_list_input5 = Rectangle.to_json_string(list_input5)
-        list_output5 = Rectangle.from_json_string(json_list_input5)
-        self.assertEqual(list_output5, [{'id': 97, 'width': 5}])
-
     def test16_display_1(self):
         """test output 1"""
         r1 = Rectangle(2, 3)
@@ -247,6 +250,9 @@ class TestingBase(unittest.TestCase):
         r1.display()
         self.assertEqual(captureOutput.getvalue(), ("##\n##\n##\n"))
 
+    def test16_display_1_err(self):
+        """test output 2"""
+        Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
             """ test output 2 """
             r2 = Rectangle()
@@ -296,6 +302,9 @@ class TestingBase(unittest.TestCase):
         r2 = Rectangle.create(**r1_dictionary)
         self.assertEqual(r2.__str__(), "[Rectangle] (1) 1/0 - 3/5")
 
+    def test17_dict_to_inst_err(self):
+        """ dict to instance """
+        Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
             r10 = Rectangle()
             r10_dictionary = r10.to_dictionary()

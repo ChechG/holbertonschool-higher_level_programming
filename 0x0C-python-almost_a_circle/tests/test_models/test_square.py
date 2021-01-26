@@ -53,7 +53,7 @@ class TestingSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             s14 = Square(1e100)
 
-    def test2_x(self):
+    def test2_x_err(self):
         """Testing Square X"""
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
@@ -86,16 +86,19 @@ class TestingSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             s10 = Square(1, 2, 3, 4, 5, 6)
 
-        s11 = Square(9, 0)
-        self.assertEqual(s11.x, 0)
-
         with self.assertRaises(TypeError):
             s12 = Square(2, 5j)
 
         with self.assertRaises(TypeError):
             s13 = Square(2, 1e100)
 
-    def test3_y(self):
+    def test2_x(self):
+        """Testing Square X"""
+        Base._Base__nb_objects = 0
+        s11 = Square(9, 0)
+        self.assertEqual(s11.x, 0)
+
+    def test3_y_err(self):
         """Testing Square Y"""
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
@@ -128,14 +131,17 @@ class TestingSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             s10 = Square(1, 2, 3, 4, 5, 6)
 
-        s11 = Square(9, 3, 0)
-        self.assertEqual(s11.y, 0)
-
         with self.assertRaises(TypeError):
             s12 = Square(2, 2, 5j)
 
         with self.assertRaises(TypeError):
             s13 = Square(2, 3, 1e100)
+
+    def test3_y(self):
+        """Testing Square Y"""
+        Base._Base__nb_objects = 0
+        s11 = Square(9, 3, 0)
+        self.assertEqual(s11.y, 0)
 
     def test4_area(self):
         """Test area Square"""
@@ -154,6 +160,13 @@ class TestingSquare(unittest.TestCase):
         rect1.size = 5
         self.assertEqual(rect1.size, 5)
 
+        rect1 = Square(1, 2, 3, 4)
+        rect1.x = 0
+        self.assertEqual(rect1.x, 0)
+
+    def test5_reassign_err(self):
+        """ test reasign values"""
+        Base._Base__nb_objects = 0
         with self.assertRaises(ValueError):
             rect2 = Square(1, 2, 3, 4)
             rect2.size = -1
@@ -177,10 +190,6 @@ class TestingSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             rect7 = Square(1, 2, 3, 4)
             rect7.size = 0
-
-        rect1 = Square(1, 2, 3, 4)
-        rect1.x = 0
-        self.assertEqual(rect1.x, 0)
 
         with self.assertRaises(TypeError):
             rect8 = Square(1, 2, 3, 4)
@@ -244,6 +253,9 @@ class TestingSquare(unittest.TestCase):
         rect7.update()
         self.assertEqual(str(rect7), "[Square] (1) 1/1 - 7")
 
+    def test6_update_err(self):
+        """ testing update """
+        Base._Base__nb_objects = 0
         with self.assertRaises(ValueError):
             rect8 = Square(2, 2)
             rect8.update(1, -2)
@@ -268,7 +280,7 @@ class TestingSquare(unittest.TestCase):
             rect12 = Square(2, 2)
             rect12.update(1, 5j)
 
-    def test7_str(self):
+    def test7_str_err(self):
         """ test str"""
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
@@ -279,6 +291,9 @@ class TestingSquare(unittest.TestCase):
             rect2 = Square()
             rect2 = str(self)
 
+    def test7_str(self):
+        """ test str"""
+        Base._Base__nb_objects = 0
         rect3 = Square(1, 2)
         self.assertEqual(str(rect3), "[Square] (1) 2/0 - 1")
 
@@ -299,6 +314,13 @@ class TestingSquare(unittest.TestCase):
         r2.update(size=3)
         self.assertEqual(str(r2), "[Square] (10) 10/10 - 3")
 
+        r2 = Square(10, 10, 10, 10)
+        r2.update(x=1, sizet=4)
+        self.assertEqual(str(r2), "[Square] (10) 1/10 - 10")
+
+    def test8_update_kwargs_err(self):
+        """ test updating kwargs square """
+        Base._Base__nb_objects = 0
         with self.assertRaises(ValueError):
             r3 = Square(10, 10, 10, 10)
             r3.update(size=0)
@@ -314,10 +336,6 @@ class TestingSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             r6 = Square(10, 10, 10, 10)
             r6.update(x=None)
-
-        r2 = Square(10, 10, 10, 10)
-        r2.update(x=1, sizet=4)
-        self.assertEqual(str(r2), "[Square] (10) 1/10 - 10")
 
     def test9_Sq_todict(self):
         """Square test to_dictionary 1"""

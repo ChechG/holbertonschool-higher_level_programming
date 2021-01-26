@@ -95,10 +95,7 @@ class TestingRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             r14 = Rectangle(13, 7, 1e100)
 
-        rect = Rectangle(9, 8, 0)
-        self.assertEqual(rect.x, 0)
-
-    def test3_x(self):
+    def test3_x_err(self):
         """ testing x value """
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
@@ -140,10 +137,12 @@ class TestingRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             r14 = Rectangle(12, 13, 7, 1e100)
 
-        rect = Rectangle(9, 8, 6, 0)
-        self.assertEqual(rect.y, 0)
+    def test4_x(self):
+        """ testing x value """
+        rect = Rectangle(9, 8, 0)
+        self.assertEqual(rect.x, 0)
 
-    def test4_y(self):
+    def test4_y_err(self):
         """ testing y value """
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
@@ -185,6 +184,8 @@ class TestingRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             r14 = Rectangle(12, 13, 7, 1e100)
 
+    def test4_y(self):
+        """ test y"""
         rect = Rectangle(9, 8, 6, 0)
         self.assertEqual(rect.y, 0)
 
@@ -204,6 +205,16 @@ class TestingRectangle(unittest.TestCase):
         rect1.width = 3
         self.assertEqual(rect1.width, 3)
 
+        rect1 = Rectangle(1, 2, 3, 4, 5)
+        rect1.y = 0
+        self.assertEqual(rect1.y, 0)
+
+        rect1 = Rectangle(1, 2, 3, 4, 5)
+        rect1.height = 3
+        self.assertEqual(rect1.height, 3)
+
+    def test6_reassign_err(self):
+        """ testing reassign """
         with self.assertRaises(ValueError):
             rect2 = Rectangle(1, 2, 3, 4, 5)
             rect2.width = -1
@@ -227,10 +238,6 @@ class TestingRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             rect7 = Rectangle(1, 2, 3, 4, 5)
             rect7.height = 0
-
-        rect1 = Rectangle(1, 2, 3, 4, 5)
-        rect1.x = 0
-        self.assertEqual(rect1.x, 0)
 
         with self.assertRaises(TypeError):
             rect8 = Rectangle(1, 2, 3, 4, 5)
@@ -294,6 +301,10 @@ class TestingRectangle(unittest.TestCase):
         rect7.update()
         self.assertEqual(str(rect7), "[Rectangle] (1) 1/1 - 1/1")
 
+    def test7_update_err(self):
+        """ testing update """
+        Base._Base__nb_objects = 0
+
         with self.assertRaises(ValueError):
             rect8 = Rectangle(2, 2)
             rect8.update(1, -2)
@@ -318,7 +329,7 @@ class TestingRectangle(unittest.TestCase):
             rect12 = Rectangle(2, 2)
             rect12.update(1, 5j)
 
-    def test8_str(self):
+    def test8_str_err(self):
         """ test str"""
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
@@ -329,6 +340,9 @@ class TestingRectangle(unittest.TestCase):
             rect2 = Rectangle()
             rect2 = str(self)
 
+    def test8_str_err(self):
+        """ test str"""
+        Base._Base__nb_objects = 0
         rect3 = Rectangle(1, 2)
         self.assertEqual(str(rect3), "[Rectangle] (1) 0/0 - 1/2")
 
@@ -381,6 +395,13 @@ class TestingRectangle(unittest.TestCase):
         r2.update(width=3)
         self.assertEqual(str(r2), "[Rectangle] (2) 10/10 - 3/10")
 
+        r2 = Rectangle(10, 10, 10, 10)
+        r2.update(x=1, height=4, width=3)
+        self.assertEqual(str(r2), "[Rectangle] (7) 1/10 - 3/4")
+
+    def test13_update_kwargs(self):
+        """ test updating kwargs rectangle """
+        Base._Base__nb_objects = 0
         with self.assertRaises(ValueError):
             r3 = Rectangle(10, 10, 10, 10)
             r3.update(width=0)
@@ -396,7 +417,3 @@ class TestingRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             r6 = Rectangle(10, 10, 10, 10)
             r6.update(x=None)
-
-        r2 = Rectangle(10, 10, 10, 10)
-        r2.update(x=1, height=4, width=3)
-        self.assertEqual(str(r2), "[Rectangle] (7) 1/10 - 3/4")
