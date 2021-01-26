@@ -8,53 +8,7 @@ from models.square import Square
 
 class TestingRectangle(unittest.TestCase):
     """class for Test Rectangle"""
-    def test1_id(self):
-        """testing id"""
-        Base._Base__nb_objects = 0
-
-        with self.assertRaises(TypeError):
-            r1 = Rectangle("hello", 2)
-
-        with self.assertRaises(TypeError):
-            r2 = Rectangle([9, 6], 2)
-
-        with self.assertRaises(TypeError):
-            r3 = Rectangle((7, 3), 4)
-
-        with self.assertRaises(TypeError):
-            r4 = Rectangle({'k': 8}, 5)
-
-        with self.assertRaises(ValueError):
-            r5 = Rectangle(0, 6)
-
-        with self.assertRaises(ValueError):
-            r6 = Rectangle(-7, 8)
-
-        with self.assertRaises(TypeError):
-            r7 = Rectangle(4.5, 9)
-
-        with self.assertRaises(TypeError):
-            r8 = Rectangle(float('NaN'), 7)
-
-        with self.assertRaises(TypeError):
-            r9 = Rectangle(float('inf'), 7)
-
-        with self.assertRaises(TypeError):
-            r10 = Rectangle(True, 1)
-
-        with self.assertRaises(TypeError):
-            r11 = Rectangle(1, 2, 3, 4, 5, 6)
-
-        with self.assertRaises(TypeError):
-            r12 = Rectangle()
-
-        with self.assertRaises(TypeError):
-            r13 = Rectangle(5j, 8)
-
-        with self.assertRaises(TypeError):
-            r14 = Rectangle(1e100, 7)
-
-    def test2_width(self):
+    def test1_width(self):
         """testing width value"""
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
@@ -99,7 +53,7 @@ class TestingRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             r14 = Rectangle(7, 1e100)
 
-    def test3_height(self):
+    def test2_height(self):
         """ testing height value """
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
@@ -144,7 +98,7 @@ class TestingRectangle(unittest.TestCase):
         rect = Rectangle(9, 8, 0)
         self.assertEqual(rect.x, 0)
 
-    def test4_x(self):
+    def test3_x(self):
         """ testing x value """
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
@@ -189,7 +143,7 @@ class TestingRectangle(unittest.TestCase):
         rect = Rectangle(9, 8, 6, 0)
         self.assertEqual(rect.y, 0)
 
-    def test5_y(self):
+    def test4_y(self):
         """ testing y value """
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
@@ -234,13 +188,13 @@ class TestingRectangle(unittest.TestCase):
         rect = Rectangle(9, 8, 6, 0)
         self.assertEqual(rect.y, 0)
 
-    def test6_areaRect(self):
+    def test5_areaRect(self):
         Base._Base__nb_objects = 0
         """ test area"""
         rect = Rectangle(4, 4)
         self.assertEqual(rect.area(), 16)
 
-    def test7_reassign(self):
+    def test6_reassign(self):
         """ test reasign values"""
         rect = Rectangle(1, 2, 3, 4, 5)
         rect.x = 1
@@ -302,7 +256,7 @@ class TestingRectangle(unittest.TestCase):
             rect11 = Rectangle(1, 2, 3, 4, 5)
             rect11.y = 1e100
 
-    def test8_update(self):
+    def test7_update(self):
         """ testing update """
         Base._Base__nb_objects = 0
         rect1 = Rectangle(7, 7, 7, 7, 7)
@@ -364,7 +318,7 @@ class TestingRectangle(unittest.TestCase):
             rect12 = Rectangle(2, 2)
             rect12.update(1, 5j)
 
-    def test9_str(self):
+    def test8_str(self):
         """ test str"""
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
@@ -384,7 +338,7 @@ class TestingRectangle(unittest.TestCase):
         rect5 = Rectangle(1, 2, 3, 4, 5)
         self.assertEqual(str(rect5), "[Rectangle] (5) 3/4 - 1/2")
 
-    def test10_1_todict(self):
+    def test9_1_todict(self):
         """ test to_dictionary """
         Base._Base__nb_objects = 0
         rect = Rectangle(1, 2, 3, 4, 5)
@@ -402,21 +356,21 @@ class TestingRectangle(unittest.TestCase):
         for i in MyDict:
             self.assertEqual(rect1[i], MyDict[i])
 
-    def test10_3_todict(self):
+    def test11_3_todict(self):
         """ test to_dictionary """
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
             rect = Rectangle()
             rect1 = rect.to_dictionary()
 
-    def test10_4_todict(self):
+    def test12_4_todict(self):
         """ test to_dictionary """
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
             rect = Rectangle(None)
             rect1 = rect.to_dictionary()
 
-    def test11_update_kwargs(self):
+    def test13_update_kwargs(self):
         """ test updating kwargs rectangle """
         Base._Base__nb_objects = 0
         r1 = Rectangle(10, 10, 10, 10)

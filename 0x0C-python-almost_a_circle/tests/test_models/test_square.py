@@ -206,7 +206,7 @@ class TestingSquare(unittest.TestCase):
             rect11 = Square(1, 2, 3, 4)
             rect11.y = 1e100
 
-    def test8_update(self):
+    def test6_update(self):
         """ testing update """
         Base._Base__nb_objects = 0
         rect1 = Square(7, 7, 7, 7)
@@ -268,7 +268,7 @@ class TestingSquare(unittest.TestCase):
             rect12 = Square(2, 2)
             rect12.update(1, 5j)
 
-    def test9_str(self):
+    def test7_str(self):
         """ test str"""
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
@@ -288,7 +288,7 @@ class TestingSquare(unittest.TestCase):
         rect5 = Square(1, 2, 3, 4)
         self.assertEqual(str(rect5), "[Square] (4) 2/3 - 1")
 
-    def test11_update_kwargs(self):
+    def test8_update_kwargs(self):
         """ test updating kwargs square """
         Base._Base__nb_objects = 0
         r1 = Square(10, 10, 10, 10)
@@ -318,3 +318,31 @@ class TestingSquare(unittest.TestCase):
         r2 = Square(10, 10, 10, 10)
         r2.update(x=1, sizet=4)
         self.assertEqual(str(r2), "[Square] (10) 1/10 - 10")
+
+    def test9_Sq_todict(self):
+        """Square test to_dictionary 1"""
+        sq = Square(1, 2, 3, 4)
+        sq1 = sq.to_dictionary()
+        MyDict = {'id': 4, 'size': 1, 'x': 2, 'y': 3}
+        for i in MyDict:
+            self.assertEqual(sq1[i], MyDict[i])
+
+    def test10_Sq_todict(self):
+        """Square test to_dictionary 2"""
+        sq = Square(1)
+        sq1 = sq.to_dictionary()
+        MyDict = {'id': 1, 'size': 1, 'x': 0, 'y': 0}
+        for i in MyDict:
+            self.assertEqual(sq1[i], MyDict[i])
+
+    def test11_Sq_todict(self):
+        """Square test to_dictionary 3"""
+        with self.assertRaises(TypeError):
+            sq = Square()
+            sq1 = sq.to_dictionary()
+
+    def test12_Sq_todict(self):
+        """Square test to_dictionary 4"""
+        with self.assertRaises(TypeError):
+            sq = Square(None)
+            sq1 = sq.to_dictionary()
