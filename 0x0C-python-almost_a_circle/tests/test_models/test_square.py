@@ -364,10 +364,3 @@ class TestingSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             sq = Square(None)
             sq1 = sq.to_dictionary()
-
-    def test13_json_to_file8(self):
-        """ test json string into file"""
-        Base._Base__nb_objects = 0
-        Square.save_to_file(None)
-        with open("Square.json", "r") as myfile:
-            self.assertEqual("[]", myfile.read())
