@@ -179,6 +179,16 @@ class TestingBase(unittest.TestCase):
             list_output = Square.from_json_string(file1)
             self.assertEqual(list_output, lista)
 
+    def test8_json_to_file5(self):
+        """ test json string into file"""
+        Base._Base__nb_objects = 0
+        Square.save_to_file(None)
+        lista = []
+        with open("Square.json", "r") as file:
+            file1 = file.read()
+            list_output = Square.from_json_string(file1)
+            self.assertEqual(list_output, lista)
+
     def test9_json_to_file5(self):
         """ test json string into file"""
         Base._Base__nb_objects = 0
