@@ -233,9 +233,9 @@ class TestingBase(unittest.TestCase):
 
     def test15_jsonstr_to_dic3_err(self):
         """ test json to dict """
-        with self.assertRaises(TypeError):
-            json_list_input3 = None
-            list_output3 = Rectangle.from_json_string(json_list_input3)
+        json_list_input3 = None
+        list_output3 = Rectangle.from_json_string(json_list_input3)
+        self.assertEqual(list_output3, [])
 
         with self.assertRaises(ValueError):
             json_list_input4 = "Hello Python"
