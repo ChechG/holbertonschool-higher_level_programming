@@ -187,7 +187,7 @@ class TestingBase(unittest.TestCase):
         with open("Square.json", "r") as file:
             file1 = file.read()
             list_output = Square.from_json_string(file1)
-            self.assertEqual(list_output, lista)
+            self.assertEqual(list_output.__str__(), lista.__str__())
 
     def test9_json_to_file5(self):
         """ test json string into file"""
