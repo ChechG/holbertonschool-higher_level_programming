@@ -15,7 +15,7 @@ class Square(Rectangle):
 
     def __str__(self):
         """converts to string"""
-        return ("[Square] ({}) {:d}/{:d} - {:d}".format(self.id,
+        return ("[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id,
                 self.__x, self.__y, self.__width))
 
     @property
@@ -31,9 +31,9 @@ class Square(Rectangle):
                 self.__width = value
                 self.__height = value
             else:
-                raise ValueError("size must be >= 0")
+                raise ValueError("width must be > 0")
         else:
-            raise TypeError("size must be an integer")
+            raise TypeError("width must be an integer")
 
     @property
     def x(self):
