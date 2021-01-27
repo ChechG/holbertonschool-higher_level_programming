@@ -68,7 +68,6 @@ class TestingBase(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(0, 2)
 
-
     def test2_to_json_string(self):
         """funct to pass to JSON string"""
         Base._Base__nb_objects = 0
@@ -314,7 +313,6 @@ class TestingBase(unittest.TestCase):
         r9.display()
         self.assertEqual(captureOutput.getvalue(), ("\n #\n"))
 
-
     def test16_display_1_err(self):
         """test output 2"""
         Base._Base__nb_objects = 0
@@ -400,16 +398,16 @@ class TestingBase(unittest.TestCase):
 
     def test19_create1(self):
         """ test create method """
-        s1 = Square.create(**{ 'id': 89 })
+        s1 = Square.create(**{'id': 89})
         self.assertEqual(s1.__str__(), "[Square] (89) 0/0 - 3")
 
-        s2 = Square.create(**{ 'id': 89, 'size': 1 })
+        s2 = Square.create(**{'id': 89, 'size': 1})
         self.assertEqual(s2.__str__(), "[Square] (89) 0/0 - 1")
 
-        s3 = Square.create(**{ 'id': 89, 'size': 1, 'x': 2 })
+        s3 = Square.create(**{'id': 89, 'size': 1, 'x': 2})
         self.assertEqual(s3.__str__(), "[Square] (89) 2/0 - 1")
 
-        s4 = Square.create(**{ 'id': 89, 'size': 1, 'x': 2, 'y': 3 })
+        s4 = Square.create(**{'id': 89, 'size': 1, 'x': 2, 'y': 3})
         self.assertEqual(s4.__str__(), "[Square] (89) 2/3 - 1")
 
     def test2_load_from_file(self):
@@ -418,7 +416,7 @@ class TestingBase(unittest.TestCase):
         MyList = []
         Square.save_to_file(MyList)
         list_square_out = Square.load_from_file()
-        self.assertEqual([i.__dict__ for i in MyList], 
+        self.assertEqual([i.__dict__ for i in MyList],
                          [i.__dict__ for i in list_square_out])
 
     def test_json_to_file10(self):
