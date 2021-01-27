@@ -203,7 +203,9 @@ class TestingBase(unittest.TestCase):
     def test12_json_to_file8(self):
         """ test json string into file"""
         Base._Base__nb_objects = 0
-        self.assertEqual(Square.save_to_file(None), None)
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json") as myfile:
+            self.assertEqual(myfile.read(), "[]")
 
     def test13_json_to_file9(self):
         """ test json string into file"""
@@ -220,7 +222,9 @@ class TestingBase(unittest.TestCase):
     def test15_json_to_file11(self):
         """ test json string into file"""
         Base._Base__nb_objects = 0
-        self.assertEqual(Rectangle.save_to_file(None), None)
+        Square.save_to_file(None)
+        with open("Square.json") as myfile:
+            self.assertEqual(myfile.read(), "[]")
 
     def test14_json_str_to_dic_1(self):
         """test json, str to dictionary"""
