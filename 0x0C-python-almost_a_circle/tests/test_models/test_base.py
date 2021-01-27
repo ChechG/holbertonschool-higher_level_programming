@@ -222,9 +222,9 @@ class TestingBase(unittest.TestCase):
     def test15_json_to_file11(self):
         """ test json string into file"""
         Base._Base__nb_objects = 0
-        Square.save_to_file(None)
+        s1 = Square.save_to_file(None)
         with open("Square.json") as myfile:
-            self.assertEqual(myfile.read(), "[]")
+            self.assertEqual(s1, None)
 
     def test14_json_str_to_dic_1(self):
         """test json, str to dictionary"""
