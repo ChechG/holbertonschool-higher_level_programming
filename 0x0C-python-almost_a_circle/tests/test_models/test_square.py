@@ -369,5 +369,5 @@ class TestingSquare(unittest.TestCase):
         """ test json string into file"""
         Base._Base__nb_objects = 0
         Square.save_to_file(None)
-        with open("Square.json") as myfile:
+        with open("Square.json", "r") as myfile:
             self.assertEqual("[]", myfile.read())
