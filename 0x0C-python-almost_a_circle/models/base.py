@@ -32,9 +32,13 @@ class Base():
         if list_objs is not None:
             for i in range(len(list_objs)):
                 the_list.append(list_objs[i].to_dictionary())
-        jstrg = cls.to_json_string(the_list)
-        with open(filename, 'w') as MyFile:
-            MyFile.write(jstrg)
+            jstrg = cls.to_json_string(the_list)
+            with open(filename, 'w') as MyFile:
+                MyFile.write(jstrg)
+        else:
+            jstrg = cls.to_json_string(the_list)
+            with open(filename, 'w') as MyFile:
+                MyFile.write(jstrg)
 
     @staticmethod
     def from_json_string(json_string):
