@@ -416,7 +416,7 @@ class TestingBase(unittest.TestCase):
         MyList = []
         Square.save_to_file(MyList)
         list_square_out = Square.load_from_file()
-        self.assertEqual([i.__dict__ for i in MyList],
+        self.assertEqual([i.__dict__ for i in MyList], 
                          [i.__dict__ for i in list_square_out])
 
     def test_json_to_file10(self):
@@ -428,6 +428,12 @@ class TestingBase(unittest.TestCase):
         with open("Square.json", "r") as my_file:
             list_sq_output = [s1.to_dictionary(), s2.to_dictionary()]
             self.assertEqual(json.dumps(list_sq_output), my_file.read())
+
+    def test_stf_None(self):
+        """test save_to_file with None"""
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            self.assertEqual("[]", f.read())
 
 if __name__ == '__main__':
     unittest.main()
