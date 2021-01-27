@@ -385,5 +385,15 @@ class TestingBase(unittest.TestCase):
         s4 = Square.create(**{ 'id': 89, 'size': 1, 'x': 2, 'y': 3 })
         self.assertEqual(s4.__str__(), "[Square] (89) 2/3 - 1")
 
+    def test2_load_from_file(self):
+        """ load from file """
+        Base._Base__nb_objects = 0
+        MyList = []
+        Square.save_to_file(MyList)
+        list_square_out = Square.load_from_file()
+        self.assertEqual([i.__dict__ for i in MyList], 
+                         [i.__dict__ for i in list_square_out])
+
+
 if __name__ == '__main__':
     unittest.main()
