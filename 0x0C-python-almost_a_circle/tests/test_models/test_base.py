@@ -203,8 +203,7 @@ class TestingBase(unittest.TestCase):
     def test12_json_to_file8(self):
         """ test json string into file"""
         Base._Base__nb_objects = 0
-        with self.assertRaises(AttributeError):
-            Square.save_to_file([None])
+        self.assertEqual(Square.save_to_file(None), None)
 
     def test13_json_to_file9(self):
         """ test json string into file"""
@@ -221,8 +220,7 @@ class TestingBase(unittest.TestCase):
     def test15_json_to_file11(self):
         """ test json string into file"""
         Base._Base__nb_objects = 0
-        with self.assertRaises(AttributeError):
-            Rectangle.save_to_file([None])
+        self.assertEqual(Rectangle.save_to_file(None), None)
 
     def test14_json_str_to_dic_1(self):
         """test json, str to dictionary"""
@@ -276,6 +274,15 @@ class TestingBase(unittest.TestCase):
         sys.stdout = captureOutput
         r1.display()
         self.assertEqual(captureOutput.getvalue(), ("##\n##\n##\n"))
+
+    def test16_display_2(self):
+        """ test output 3 """
+        r9 = Rectangle(1, 1, 1, 1, 1)
+        captureOutput = io.StringIO()
+        sys.stdout = captureOutput
+        r9.display()
+        self.assertEqual(captureOutput.getvalue(), ("\n #\n"))
+
 
     def test16_display_1_err(self):
         """test output 2"""
