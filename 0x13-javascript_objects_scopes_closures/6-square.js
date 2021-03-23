@@ -2,21 +2,16 @@
 const Squareone = require('./5-square');
 
 class Square extends Squareone {
-  constructor (size) {
-    super();
-    this.size = size;
-  }
-
   charPrint (c) {
     if (c === undefined) {
       c = 'X';
     }
     let printR = '';
-    for (let i = 0; i < this.size; i++) {
-      for (let j = 0; j < this.size; j++) {
+    for (let i = 0; i < this.height; i++) {
+      for (let j = 0; j < this.width; j++) {
         printR += c;
       }
-      if (i < this.size - 1) {
+      if (i < this.height - 1) {
         printR += '\n';
       }
     }
