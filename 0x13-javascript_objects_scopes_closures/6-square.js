@@ -8,7 +8,7 @@ class Square extends Squareone {
   }
 
   charPrint (c) {
-    if (c === undefined) {
+    if (c == null) {
       c = 'X';
     }
     let printR = '';
