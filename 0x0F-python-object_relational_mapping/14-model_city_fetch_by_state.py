@@ -12,8 +12,9 @@ if __name__ == "__main__":
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]))
     Session = sessionmaker(bind=engine)
     session = Session()
-    r = session.query(City, State).filter(State.id == City.state_id)
-    r = r.order_by(City.id)
+    c = City.state_id
+    s = State.id
+    r = session.query(City, State).filter(s == c).order_by(City.id)
     for city, state in r:
         print("{}: ({}) {}".format(state.name, city.id, city.name))
     session.close()
