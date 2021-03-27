@@ -8,15 +8,16 @@ if __name__ == "__main__":
     MY_USER = argv[1]
     MY_PASS = argv[2]
     MY_DB = argv[3]
-
+    MY_STATE = argv[4]
     try:
         db = MySQLdb.connect(host=MY_HOST, user=MY_USER, passwd=MY_PASS,
                              db=MY_DB)
         cur = db.cursor()
         cur.execute("SELECT * FROM states WHERE name = '{}' ORDER BY \
-                     id".format(argv[4]))
+                     id".format(MY_STATE))
         rows = cur.fetchall()
         for r in rows:
-            print(r)
+            if r[1] == MY_STATE:
+                print(r)
     except Exception as e:
         print("Error: {}".format(e))
