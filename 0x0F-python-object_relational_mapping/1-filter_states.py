@@ -16,6 +16,7 @@ if __name__ == "__main__":
         cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id")
         rows = cur.fetchall()
         for r in rows:
-            print(r)
+            if r[1][0] == 'N':
+                print(r)
     except Exception as e:
         print("Error: {}".format(e))
