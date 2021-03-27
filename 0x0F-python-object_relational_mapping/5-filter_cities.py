@@ -18,10 +18,13 @@ if __name__ == "__main__":
                      ORDER BY cities.id;", (STATE,))
         rows = cur.fetchall()
         rows = [i[0] for i in rows]
-        for j in range(len(rows)):
-            if j is len(rows) - 1:
-                print("{}".format(rows[j]))
-            else:
-                print("{}, ".format(rows[j]), end="")
+        if rows:
+            for j in range(len(rows)):
+                if j is len(rows) - 1:
+                    print("{}".format(rows[j]))
+                else:
+                    print("{}, ".format(rows[j]), end="")
+        else:
+            print()
     except Exception as e:
         print("Error: {}".format(e))
