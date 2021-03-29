@@ -4,6 +4,7 @@ from relationship_state import Base, State
 from sqlalchemy import Column, Integer, String, ForeignKey
 import sqlalchemy
 
+
 class City(Base):
     """ comentario """
     __tablename__ = 'cities'
