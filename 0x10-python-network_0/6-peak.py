@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Function finds peak in list of unsorted ints.
+""" Function finds peak in list of unsorted ints """
 
 
 def find_peak(lista):
