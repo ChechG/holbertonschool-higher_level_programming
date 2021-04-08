@@ -2,18 +2,19 @@
 # Function finds peak in list of unsorted ints.
 
 
-def find_peak(list_of_integers):
+def find_peak(lista):
     """ function finds peak """
-    if len(list_of_integers) == 0:
+    if len(lista) == 0:
         return None
-    elif len(list_of_integers) == 1:
-        return list_of_integers[0]
-    elif len(list_of_integers) == 2:
-        return max(list_of_integers)
+    elif len(lista) == 1:
+        return lista[0]
+    elif len(lista) == 2:
+        return max(lista)
     else:
-        for i in range(1, len(list_of_integers)):
-            if list_of_integers[i] > list_of_integers[i - 1] \
-               and list_of_integers[i] > list_of_integers[i + 1]:
-                return list_of_integers[i]
-            elif i == len(list_of_integers) - 1:
-                return list_of_integers[i]
+        mid = int(len(lista) / 2)
+        if lista[mid - 1] < lista[mid] > lista[mid + 1]:
+            return lista[mid]
+        elif lista[mid] < lista[mid - 1]:
+            return find_peak(lista[:mid])
+        else:
+            return find_peak(lista[mid + 1:])
