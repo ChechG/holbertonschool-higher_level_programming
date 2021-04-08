@@ -11,7 +11,7 @@ def find_peak(lista):
     if len(lista) == 2:
         return max(lista)
     mid = int(len(lista) / 2)
-    if lista[mid - 1] < lista[mid] > lista[mid + 1]:
+    if lista[mid - 1] < lista[mid] and lista[mid] > lista[mid + 1]:
         return lista[mid]
     elif lista[mid] < lista[mid - 1]:
         return find_peak(lista[:mid])
