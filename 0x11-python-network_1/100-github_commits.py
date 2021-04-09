@@ -13,7 +13,8 @@ if __name__ == "__main__":
     cont = 0
     for key in url:
         if cont < 10:
-            print("{}: {}".format(key['sha'], key['commit']['author']['name']))
-            cont += 1
+            if type(key) is dict: 
+                print("{}: {}".format(key['sha'], key['commit']['author']['name']))
+                cont += 1
         else:
             break
