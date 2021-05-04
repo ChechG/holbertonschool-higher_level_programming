@@ -9,11 +9,10 @@ request(webP, function (err, res, body) {
   } else {
     const dict = {};
     let i;
-    let nId = 1;
     const tareas = JSON.parse(body);
     const largo = tareas.length;
     for (i = 0; i < largo; i++) {
-      if (nId === tareas[i].userId) {
+      if (tareas[i].completed === true) {
         if (!(dict[tareas[i].userId])) {
           dict[tareas[i].userId] = 0;
         }
