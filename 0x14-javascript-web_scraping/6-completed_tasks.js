@@ -23,7 +23,6 @@ request(webP, function (err, res, body) {
       } else {
         nId += 1;
         i -= 1;
-        num = 0;
       }
     }
     console.log(dict);
