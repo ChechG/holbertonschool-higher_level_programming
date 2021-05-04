@@ -11,11 +11,11 @@ request(swApi, function (err, res, body) {
     let n;
     let f;
     let num = 0;
-    for (i = 0; i < 7; i++) {
-      const largo = JSON.parse(body).results[i].characters;
-      for (j = 0; j < largo.length; j++) {
-        n = JSON.parse(body).results[i].characters[j];
-        f = n.includes('18');
+    const largo = JSON.parse(body).results;
+    for (i = 0; i < largo.length; i++) {
+      for (j = 0; j < largo[i].characters.length; j++) {
+        n = largo[i].characters[j];
+        f = n.includes('/18/');
         if (f === true) {
           num += 1;
         }
