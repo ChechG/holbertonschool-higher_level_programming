@@ -11,11 +11,12 @@ request(webP, function (err, res, body) {
     let i;
     let nId = 1;
     let num = 0;
-    for (i = 0; i < JSON.parse(body).length; i++) {
+    let largo = JSON.parse(body).length
+    for (i = 0; i < largo; i++) {
       if (nId === JSON.parse(body)[i].userId) {
         if (JSON.parse(body)[i].completed === true) {
           num += 1;
-          dict[nId] = num;
+          dict[JSON.parse(body)[i].userId] = num;
         }
       } else {
         nId += 1;
