@@ -13,9 +13,13 @@ request(webP, function (err, res, body) {
     let num = 0;
     for (i = 0; i < JSON.parse(body).length; i++) {
       if (nId === JSON.parse(body)[i].userId) {
-        if (JSON.parse(body)[i].completed === true) {
-          num += 1;
-          dict[JSON.parse(body)[i].userId] = num;
+        if (!(nId in dict)) {
+          dict[nId] = 0;
+        } else {
+          if (JSON.parse(body)[i].completed === true) {
+            num += 1;
+            dict[nId] = num;
+          }
         }
       } else {
         nId += 1;
