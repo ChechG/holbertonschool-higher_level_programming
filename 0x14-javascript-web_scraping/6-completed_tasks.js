@@ -6,6 +6,7 @@ const webP = process.argv[2];
 request(webP, function (err, res, body) {
   if (err) {
     console.log(err);
+    return;
   } else {
     const dict = {};
     let i;
