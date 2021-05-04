@@ -11,8 +11,8 @@ request(webP, function (err, res, body) {
     let i;
     let nId = 1;
     let num = 0;
-    let tareas = JSON.parse(body);
-    let largo = tareas.length;
+    const tareas = JSON.parse(body);
+    const largo = tareas.length;
     for (i = 0; i < largo; i++) {
       if (nId === tareas[i].userId) {
         if (tareas[i].completed === true) {
