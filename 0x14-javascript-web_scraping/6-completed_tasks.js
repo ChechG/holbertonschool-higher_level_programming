@@ -15,7 +15,7 @@ request(webP, function (err, res, body) {
       if (nId === JSON.parse(body)[i].userId) {
         if (JSON.parse(body)[i].completed === true) {
           num += 1;
-          dict[nId] = num;
+          dict[JSON.parse(body)[i].userId] = num;
         }
       } else {
         nId += 1;
