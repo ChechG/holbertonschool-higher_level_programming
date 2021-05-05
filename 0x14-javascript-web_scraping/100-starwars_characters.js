@@ -2,7 +2,7 @@
 
 const request = require('request');
 const movieId = process.argv[2];
-const req = 'https://swapi-api.hbtn.io/api/films/' + movieId
+const req = 'https://swapi-api.hbtn.io/api/films/' + movieId;
 
 request(req, function (err, res, body) {
   if (err) {
