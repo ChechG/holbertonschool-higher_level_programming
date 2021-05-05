@@ -9,18 +9,13 @@ request(webP, function (err, res, body) {
   } else {
     const dict = {};
     let i;
-    let nId = 1;
-    let num = 0;
-    for (i = 0; i < JSON.parse(body).length; i++) {
-      if (nId === JSON.parse(body)[i].userId) {
-        if (JSON.parse(body)[i].completed === true) {
-          num += 1;
-          dict[nId] = num;
+    const tareas = JSON.parse(body);
+    for (i = 0; i < tareas.length; i++) {
+      if (tareas[i].completed === true) {
+        if (!(dict[tareas[i].userId])) {
+          dict[JSON.parse(body)[i].userId] = 0;
         }
-      } else {
-        nId += 1;
-        i -= 1;
-        num = 0;
+        dict[JSON.parse(body)[i].userId] += 1;
       }
     }
     console.log(dict);
